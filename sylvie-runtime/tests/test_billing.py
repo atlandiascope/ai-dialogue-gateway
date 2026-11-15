@@ -45,6 +45,9 @@ def test_duplicate_payment_event_is_idempotent(tmp_path):
 
 def test_duplicate_exchange_request_cannot_double_charge(tmp_path):
     wallet = ExchangeWallet(tmp_path / "wallet.db")
+    for index in range(5):
+        free = wallet.begin_exchange("alice", f"free-{index}")
+        wallet.complete_exchange("alice", free.reservation_id)
     wallet.credit_wallet("alice", 100, verified_payment_event_id="evt_topup_3")
     reservation = wallet.begin_exchange("alice", "same-request")
     wallet.complete_exchange("alice", reservation.reservation_id)

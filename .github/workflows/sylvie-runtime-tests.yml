@@ -1,0 +1,26 @@
+name: Sylvie Runtime Tests
+
+on:
+  push:
+    paths:
+      - "sylvie-runtime/**"
+      - ".github/workflows/sylvie-runtime-tests.yml"
+  pull_request:
+    paths:
+      - "sylvie-runtime/**"
+      - ".github/workflows/sylvie-runtime-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e "./sylvie-runtime[dev]"
+      - name: Run tests
+        run: pytest -q sylvie-runtime/tests

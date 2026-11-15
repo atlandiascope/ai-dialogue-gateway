@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Universal AI Diagnostics & Repair Engine</title>
-<meta name="description" content="Provider-neutral diagnostics and controlled code repair tooling for AI-enabled software systems.">
+<meta name="description" content="Provider-neutral diagnostics and approval-gated code repair SDK for Python workspaces.">
 <meta name="robots" content="index,follow">
 <style>
 :root{color-scheme:dark;--bg:#0b1220;--panel:#121e31;--line:#263951;--text:#edf4ff;--muted:#a9bad0;--accent:#7dd3fc}
@@ -14,33 +14,33 @@ h2{margin-top:2em}.muted,li{color:var(--muted)}a{color:var(--accent)}.panel{back
 code{background:#09101b;padding:2px 6px;border-radius:5px}
 </style></head>
 <body><main>
-<p class="tag">Product preview · Version 2.0.0</p>
+<p class="tag">SDK preview · Version 0.1.0</p>
 <h1>Universal AI Diagnostics & Repair Engine</h1>
-<p class="muted">A provider-neutral toolkit for diagnosing software issues, staging proposed repairs, validating changes, and applying approved updates with recovery support.</p>
-<div class="panel"><strong>Built for adaptable integration.</strong>
-<p class="muted">The engine is designed to work through adapters with OpenAI, Anthropic, Google, Meta, Mistral, local models, and custom AI systems. It operates on the software workspace an authorized operator gives it; it does not reach inside hosted model weights or vendor infrastructure.</p></div>
-<h2>Core capabilities</h2>
+<p class="muted">A provider-neutral Python SDK foundation for inspecting source files, staging proposed repairs, validating candidates, and applying approved changes with recovery support.</p>
+<div class="panel"><strong>First executable SDK milestone.</strong>
+<p class="muted">The preview package is now in the GitHub repository under <code>repair-engine/</code>. It provides local workspace-scoped repair controls. It is source code for developer evaluation, not yet a packaged commercial release.</p></div>
+<h2>Available in SDK preview 0.1.0</h2>
 <ul>
-<li>Static source diagnostics and validation.</li>
-<li>Complete repair candidates staged separately from production files.</li>
-<li>Operator-configured test commands with execution timeouts.</li>
-<li>SHA-256 integrity checks, timestamped backups, audit records, and rollback.</li>
-<li>Controlled apply workflow requiring explicit operator approval.</li>
-<li>Provider-neutral Python SDK design with REST integration path.</li>
+<li>Python source inspection and syntax validation.</li>
+<li>Complete replacement candidates staged separately from live files.</li>
+<li>SHA-256 candidate integrity and stale-target checks.</li>
+<li>Explicit operator approval before applying a change.</li>
+<li>Timestamped backups, atomic file replacement, rollback, and JSONL audit records.</li>
+<li>Workspace path restrictions, allowed file extensions, and symlink rejection.</li>
 </ul>
 <h2>Two operating modes</h2>
-<div class="panel"><strong>Controlled repair</strong><p class="muted">Diagnose, propose, validate, test, and wait for approval before applying a change.</p></div>
-<div class="panel"><strong>Sandboxed repair</strong><p class="muted">Run candidate generation and tests inside an operator-managed isolated container or virtual machine. Production changes still require approval.</p></div>
+<div class="panel"><strong>Controlled repair</strong><p class="muted">The SDK supports diagnosis, candidate staging, review, approval, apply, and rollback. The operator remains in control of every live-file change.</p></div>
+<div class="panel"><strong>Sandboxed automatic repair</strong><p class="muted">Planned next: an isolated worker for automatic candidate generation and testing. The current SDK does not create an OS sandbox or execute candidate code. Production changes will still require approval.</p></div>
 <h2>Safety boundaries</h2>
 <ul>
 <li>No unrestricted self-modification or automatic production deployment.</li>
 <li>No remote code download-and-run mechanism.</li>
-<li>Model-generated content is untrusted until reviewed and validated.</li>
-<li>Secrets, security controls, and policy safeguards are outside the repair authority by default.</li>
-<li>The toolkit itself is not an OS-level sandbox; isolation must be supplied by the operator.</li>
+<li>Model-generated content is treated as untrusted and syntax-validated, not executed by the SDK.</li>
+<li>Secrets, security controls, and policy safeguards are outside the repair authority.</li>
+<li>The toolkit is not an OS-level sandbox; operators must isolate untrusted execution themselves.</li>
 </ul>
 <h2>Gateway integration</h2>
-<p>The AI Dialogue Gateway provides public capability discovery and authenticated agent messaging. The repair engine runs in the customer's authorized environment; the gateway does not execute customer source code.</p>
-<p><a href="/api/repair/capabilities">Machine-readable capabilities</a> · <a href="/openapi.yaml">OpenAPI specification</a> · <a href="/">Gateway home</a></p>
-<p class="muted">Commercial SDK distribution is not enabled on this public preview. Licensing, packaging, and customer onboarding will be added before paid release.</p>
+<p>The AI Dialogue Gateway provides public capability discovery and authenticated agent messaging. The repair engine runs locally in the customer's authorized environment; the gateway does not execute customer source code.</p>
+<p><a href="/api/repair/capabilities">Machine-readable capabilities</a> · <a href="/openapi.yaml">OpenAPI specification</a> · <a href="https://github.com/atlandiascope/ai-dialogue-gateway/tree/main/repair-engine">SDK source in GitHub</a> · <a href="/">Gateway home</a></p>
+<p class="muted">Provider adapters, automated isolated testing, SDK distribution, licensing, and checkout are not included in this preview yet.</p>
 </main></body></html>

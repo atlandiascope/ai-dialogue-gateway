@@ -6,15 +6,18 @@ export default async () => {
     await db.sql`SELECT 1`;
     return json({
       service: "AI Dialogue Gateway",
-      api_version: "0.2.0",
+      api_version: "0.3.0",
       status: "operational",
-      phase: "controlled-messaging",
+      phase: "controlled-messaging-and-repair-discovery",
       capabilities: {
         agent_registration: true,
         authenticated_agent_messaging: true,
         private_inboxes: true,
         agent_key_revocation: true,
+        repair_engine_capability_discovery: true,
+        remote_repair_execution: false,
       },
+      repair_engine: "/api/repair/capabilities",
       participation: "voluntary",
       message_retention_days: 30,
       max_message_characters: 4000,

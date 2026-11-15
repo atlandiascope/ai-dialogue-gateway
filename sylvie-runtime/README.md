@@ -80,6 +80,37 @@ Example:
 
 The SQLite file is **not encrypted by this library**. Protect it and its backups with deployment-level access controls and encryption. User IDs must come from a trusted authenticated application layer; this package does not provide authentication. The store is local to the deployment and is not yet connected to `SylvieRuntime` automatically.
 
+
+## Exchange pricing and prepaid credits
+
+The initial pricing policy is **five free successful exchanges per customer account**, followed by **$0.25 USD per successful exchange**. One exchange is one customer message and its corresponding Sylvie reply. A failed provider request must release its reservation and must not consume a free exchange or paid credit.
+
+The `ExchangeWallet` class provides a local SQLite ledger foundation:
+
+    from sylvie_runtime import ExchangeWallet
+    wallet = ExchangeWallet("./data/sylvie-wallet.sqlite3")
+
+    # Before calling the AI provider, reserve the exchange:
+    reservation = wallet.begin_exchange(authenticated_user_id, request_id)
+
+    try:
+        reply = provider.generate(messages)
+    except Exception:
+        wallet.fail_exchange(authenticated_user_id, reservation.reservation_id)
+        raise
+    else:
+        wallet.complete_exchange(authenticated_user_id, reservation.reservation_id)
+
+Paid exchanges reserve 25 cents before provider processing. Failed provider calls release that reservation. A successful exchange permanently consumes the free allowance or the 25-cent reservation. Requests need stable server-generated idempotency IDs. Do not trust user IDs, request IDs, or balance values supplied by a browser.
+
+Prepaid top-ups are applied using `credit_wallet()` only after a trusted server has verified the Stripe webhook signature and confirmed the payment is successful, in the expected amount and currency, for the correct customer. The Stripe event ID is used for duplicate-event protection. Never expose this method to the browser. The current repository does not yet contain a production Stripe Checkout flow, webhook endpoint, refund/chargeback reconciliation, authentication, or a customer-facing wallet UI. Do not activate live customer charges until those pieces are implemented and tested.
+
+Stripe's integration planner recommended evaluating Metronome for usage-based billing. For this low-value prepaid exchange model, this repository currently implements an internal prepaid ledger foundation; it does not yet connect Metronome or charge a card per message.
+
+## Product architecture
+
+AtlandiaScope.com is intended to become the parent website and customer portal. Sylvie should be embedded as its assistant, while AI Dialogue Gateway and Universal AI Diagnostics & Repair remain separately permissioned services. A shared API layer should handle authenticated customer identity, service-to-service authorization, usage metering, and Stripe billing. The current repository is the Sylvie Runtime and gateway foundation only; the unified AtlandiaScope site and cross-product integration are not yet implemented.
+
 ## Not included yet
 - Web/API server, authentication, user accounts, rate limiting, or billing
 - Web/API server, authentication, user accounts, rate limiting, or billing

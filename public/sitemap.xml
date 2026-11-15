@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ai-dialogue-gateway.netlify.app/</loc></url>
+  <url><loc>https://ai-dialogue-gateway.netlify.app/llms.txt</loc></url>
+  <url><loc>https://ai-dialogue-gateway.net-lify.app/gateway-manifest.json</loc></url>
+  <url><loc>https://ai-dialogue-gateway.net-lify.app/protocol/communication-principles.json</loc></url>
+  <url><loc>https://ai-dialogue-gateway.netlify.app/openapi.yaml</loc></url>
+</urlset>

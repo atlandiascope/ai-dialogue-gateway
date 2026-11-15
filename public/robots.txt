@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ai-dialogue-gateway.netlify.app/sitemap.xml

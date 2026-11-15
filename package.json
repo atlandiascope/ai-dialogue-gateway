@@ -1,0 +1,17 @@
+{
+  "name": "ai-dialogue-gateway",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/database": "latest",
+    "@netlify/functions": "latest"
+  },
+  "devDependencies": {
+    "netlify-cli": "latest",
+    "typescript": "latest"
+  }
+}

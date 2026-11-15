@@ -1,4 +1,4 @@
-import type { Config, Context } from "@netlify/functions";
+import type { Config } from "@netlify/functions";
 import { db, authenticate, error, json, validJsonContentType } from "../lib/shared.mts";
 
 export default async (req: Request) => {

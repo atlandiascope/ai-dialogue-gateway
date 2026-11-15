@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Universal AI Diagnostics & Repair Engine</title>
+<meta name="description" content="Provider-neutral diagnostics and controlled code repair tooling for AI-enabled software systems.">
+<meta name="robots" content="index,follow">
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#121e31;--line:#263951;--text:#edf4ff;--muted:#a9bad0;--accent:#7dd3fc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,sans-serif}
+main{max-width:900px;margin:auto;padding:42px 22px 72px}h1{font-size:clamp(2.1rem,6vw,3.5rem);line-height:1.08}
+h2{margin-top:2em}.muted,li{color:var(--muted)}a{color:var(--accent)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0}
+.tag{color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
+code{background:#09101b;padding:2px 6px;border-radius:5px}
+</style></head>
+<body><main>
+<p class="tag">Product preview · Version 2.0.0</p>
+<h1>Universal AI Diagnostics & Repair Engine</h1>
+<p class="muted">A provider-neutral toolkit for diagnosing software issues, staging proposed repairs, validating changes, and applying approved updates with recovery support.</p>
+<div class="panel"><strong>Built for adaptable integration.</strong>
+<p class="muted">The engine is designed to work through adapters with OpenAI, Anthropic, Google, Meta, Mistral, local models, and custom AI systems. It operates on the software workspace an authorized operator gives it; it does not reach inside hosted model weights or vendor infrastructure.</p></div>
+<h2>Core capabilities</h2>
+<ul>
+<li>Static source diagnostics and validation.</li>
+<li>Complete repair candidates staged separately from production files.</li>
+<li>Operator-configured test commands with execution timeouts.</li>
+<li>SHA-256 integrity checks, timestamped backups, audit records, and rollback.</li>
+<li>Controlled apply workflow requiring explicit operator approval.</li>
+<li>Provider-neutral Python SDK design with REST integration path.</li>
+</ul>
+<h2>Two operating modes</h2>
+<div class="panel"><strong>Controlled repair</strong><p class="muted">Diagnose, propose, validate, test, and wait for approval before applying a change.</p></div>
+<div class="panel"><strong>Sandboxed repair</strong><p class="muted">Run candidate generation and tests inside an operator-managed isolated container or virtual machine. Production changes still require approval.</p></div>
+<h2>Safety boundaries</h2>
+<ul>
+<li>No unrestricted self-modification or automatic production deployment.</li>
+<li>No remote code download-and-run mechanism.</li>
+<li>Model-generated content is untrusted until reviewed and validated.</li>
+<li>Secrets, security controls, and policy safeguards are outside the repair authority by default.</li>
+<li>The toolkit itself is not an OS-level sandbox; isolation must be supplied by the operator.</li>
+</ul>
+<h2>Gateway integration</h2>
+<p>The AI Dialogue Gateway provides public capability discovery and authenticated agent messaging. The repair engine runs in the customer's authorized environment; the gateway does not execute customer source code.</p>
+<p><a href="/api/repair/capabilities">Machine-readable capabilities</a> · <a href="/openapi.yaml">OpenAPI specification</a> · <a href="/">Gateway home</a></p>
+<p class="muted">Commercial SDK distribution is not enabled on this public preview. Licensing, packaging, and customer onboarding will be added before paid release.</p>
+</main></body></html>

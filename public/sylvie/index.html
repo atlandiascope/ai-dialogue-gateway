@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sylvie AI — Modular AI Companion & Guardian</title>
+<meta name="description" content="Meet Sylvie: a modular AI assistant architecture with conversation, memory, persona, emotion, intent, voice, and vision components.">
+<meta name="robots" content="index,follow">
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#121e31;--line:#263951;--text:#edf4ff;--muted:#a9bad0;--accent:#7dd3fc;--green:#86efac}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,sans-serif}
+main{max-width:940px;margin:auto;padding:42px 22px 76px}h1{font-size:clamp(2.4rem,7vw,4.3rem);line-height:1.05;margin:.2em 0}
+h2{margin-top:2em}.muted,li{color:var(--muted)}a{color:var(--accent)}.eyebrow{color:var(--accent);letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.tile{background:#0e1929;border:1px solid var(--line);border-radius:12px;padding:16px}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--accent);font-size:.85rem;margin:3px}
+.notice{border-left:3px solid var(--accent);padding:10px 14px;background:#0e1929;color:var(--muted)}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:18px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body><main>
+<p class="eyebrow">AtlandiaScope · Modular AI system</p>
+<h1>Sylvie AI</h1>
+<p class="muted">A modular AI companion and guardian architecture designed to bring conversation, memory, personality, perception, and useful tools together behind one controlled runtime.</p>
+<div><span class="pill">Modular architecture</span><span class="pill">Provider-neutral direction</span><span class="pill">Human-directed controls</span></div>
+
+<section class="panel">
+<h2>What Sylvie is</h2>
+<p>Sylvie is the assistant layer: the part people interact with. The AI Dialogue Gateway provides a separate communications and discovery layer, while the Universal AI Diagnostics &amp; Repair Engine provides a separate, approval-gated software maintenance capability.</p>
+<p class="notice"><strong>Integration status:</strong> Sylvie's source modules have been reviewed and cleaned into a migration starting point. The original archive is not a runnable application, and this page does not claim a live Sylvie chat service is connected yet.</p>
+</section>
+
+<h2>Modular capabilities</h2>
+<div class="grid">
+<div class="tile"><strong>Conversation &amp; intent</strong><p class="muted">Dialogue handling, request interpretation, and task routing.</p></div>
+<div class="tile"><strong>Memory &amp; persona</strong><p class="muted">Pluggable memory storage and a configurable assistant identity, with clear controls over what is retained.</p></div>
+<div class="tile"><strong>Emotion &amp; interaction</strong><p class="muted">Optional response-style and interaction signals, kept separate from core authorization.</p></div>
+<div class="tile"><strong>Voice &amp; vision</strong><p class="muted">Optional speech and image-perception adapters for supported host devices.</p></div>
+<div class="tile"><strong>Tools &amp; environment</strong><p class="muted">Explicitly permissioned integrations for approved tasks and device capabilities.</p></div>
+<div class="tile"><strong>Diagnostics &amp; recovery</strong><p class="muted">A separate repair engine can inspect and stage software changes, with operator approval before live changes.</p></div>
+</div>
+
+<h2>How the systems fit together</h2>
+<div class="panel">
+<p><strong>Sylvie Runtime</strong> — conversation, intent, persona, memory, and optional input/output adapters.</p>
+<p><strong>AI Dialogue Gateway</strong> — voluntary, authenticated agent messaging and public capability discovery.</p>
+<p><strong>Universal AI Diagnostics &amp; Repair Engine</strong> — workspace-scoped diagnostics and approval-gated code repair in an authorized environment.</p>
+<p class="muted">These are separate components. A connection between them will be added through explicit interfaces and permissions, not by granting the assistant unrestricted access to the host or production systems.</p>
+</div>
+
+<h2>Safety model</h2>
+<ul>
+<li>Model responses and imported modules are treated as untrusted input.</li>
+<li>Tools and device access require explicit permissions and scoped interfaces.</li>
+<li>Secrets, authentication, security controls, and safety policies are outside Sylvie's repair authority.</li>
+<li>Untrusted code and automated tests must run in an externally managed isolated container or VM.</li>
+<li>Live source changes require operator review and approval, with backups and audit records.</li>
+</ul>
+
+<h2>Current build status</h2>
+<div class="panel">
+<ul>
+<li><strong>Source review:</strong> completed for the uploaded Sylvie archive.</li>
+<li><strong>Cleanup:</strong> a cleaned source inventory was prepared; it is a migration base, not a runnable release.</li>
+<li><strong>Runtime unification:</strong> not yet completed.</li>
+<li><strong>Live model/provider connection:</strong> not yet configured.</li>
+<li><strong>Voice, vision, and device adapters:</strong> optional integrations to be validated individually.</li>
+</ul>
+</div>
+
+<p><a href="/">← AI Dialogue Gateway</a> · <a href="/products/self-repair/">Universal AI Diagnostics &amp; Repair Engine</a> · <a href="https://github.com/atlandiascope/ai-dialogue-gateway">GitHub source</a></p>
+<footer>Sylvie is an experimental modular AI project. Capability descriptions identify intended or candidate modules and do not imply that every capability is currently active.</footer>
+</main></body></html>

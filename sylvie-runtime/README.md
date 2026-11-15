@@ -12,6 +12,7 @@ Sylvie Runtime is a distinct component from the AI Dialogue Gateway and the Univ
 - Offline deterministic provider for development and tests
 - Conversation creation and ordered message handling
 - Bounded, process-local conversation history
+- Opt-in SQLite persistent memory store with per-user isolation, export, deletion, and retention limits
 - Input size checks and explicit provider status
 - Provider adapters return text only; no tool/function execution is enabled
 
@@ -65,8 +66,22 @@ The local provider is a test adapter, not an AI model.
 - Only system, user, and assistant text messages are accepted.
 - No tools, function calls, external actions, or automatic repair authority are enabled.
 
+## Opt-in persistent memory
+
+`SQLiteMemoryStore` is a separate opt-in memory layer. It stores only records explicitly submitted to `remember()` after that user enables consent with `set_consent(user_id, True)`. Disabling consent deletes that user's stored records. Records are scoped by user ID, can be retrieved/exported/deleted, and are bounded by per-user and per-record limits. No conversation is automatically ingested.
+
+Example:
+
+    from sylvie_runtime import SQLiteMemoryStore
+    memory = SQLiteMemoryStore("./data/sylvie-memory.sqlite3")
+    memory.set_consent("user-123", True)
+    memory.remember("user-123", "Prefers concise responses", category="preferences")
+    saved = memory.retrieve("user-123")
+
+The SQLite file is **not encrypted by this library**. Protect it and its backups with deployment-level access controls and encryption. User IDs must come from a trusted authenticated application layer; this package does not provide authentication. The store is local to the deployment and is not yet connected to `SylvieRuntime` automatically.
+
 ## Not included yet
-- Persistent memory or database storage
+- Web/API server, authentication, user accounts, rate limiting, or billing
 - Web/API server, authentication, user accounts, rate limiting, or billing
 - Voice, vision, autonomous actions, or tool execution
 - Production deployment or multi-process session coordination

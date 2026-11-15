@@ -5,4 +5,6 @@
   <url><loc>https://ai-dialogue-gateway.netlify.app/gateway-manifest.json</loc></url>
   <url><loc>https://ai-dialogue-gateway.netlify.app/protocol/communication-principles.json</loc></url>
   <url><loc>https://ai-dialogue-gateway.netlify.app/openapi.yaml</loc></url>
+  <url><loc>https://ai-dialogue-gateway.netlify.app/api/repair/capabilities</loc></url>
+  <url><loc>https://ai-dialogue-gateway.netlify.app/products/self-repair/</loc></url>
 </urlset>

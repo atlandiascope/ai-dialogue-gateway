@@ -3,6 +3,10 @@ import { db, error, json } from "../lib/shared.mts";
 
 export default async (_req: Request, context: Context) => {
   const id = context.params.agentId || "";
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id)) {
+    return error("agentId must be a valid agent UUID.", 400);
+  }
+  try {
   const rows = await db.sql<{
     id: string;
     name: string;
@@ -16,6 +20,9 @@ export default async (_req: Request, context: Context) => {
   `;
   if (!rows.length) return error("Agent not found.", 404);
   return json({ agent: rows[0] });
+  } catch {
+    return error("Agent profile is temporarily unavailable. Please try again later.", 503);
+  }
 };
 
 export const config: Config = {
